@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FAA Construction Works</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f4f0;--card:#fff;--ink:#1d1d1b;--mut:#6b6b66;--pri:#c2410c;--pri2:#9a3412;--bd:#e4e0d8;--hero:#1f2937}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151514;--card:#1f1f1d;--ink:#f1efea;--mut:#a3a39b;--pri:#f97316;--pri2:#fb923c;--bd:#33332f;--hero:#0b0f14}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:1px solid var(--bd);z-index:5;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;gap:8px;flex-wrap:wrap}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:10}
+.logo{font-weight:800;font-size:1.1rem}.logo span{color:var(--pri)}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav button,.btn{border:0;background:none;color:var(--ink);padding:8px 12px;border-radius:8px;font:inherit;cursor:pointer;font-weight:600}
+nav button.on,nav button:hover{background:var(--bg)}
+.btn{background:var(--pri);color:#fff}.btn:hover{background:var(--pri2)}
+.btn.alt{background:var(--bg);color:var(--ink);border:1px solid var(--bd)}.btn.sm{padding:6px 10px;font-size:.85rem}
+.badge{background:var(--pri);color:#fff;border-radius:99px;padding:0 7px;font-size:.75rem;margin-left:4px}
+main{max-width:1000px;margin:0 auto;padding:16px}
+.hero{background:var(--hero);color:#fff;border-radius:16px;padding:32px 22px;margin-bottom:20px}
+.hero h1{margin:0 0 8px;font-size:1.7rem}.hero p{margin:0 0 16px;color:#d1d5db}
+h2{margin:20px 0 10px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.chip{border:1px solid var(--bd);background:var(--card);color:var(--ink);padding:6px 14px;border-radius:99px;cursor:pointer;font:inherit}
+.chip.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.card .im{aspect-ratio:4/3;background:var(--bg);display:flex;align-items:center;justify-content:center}
+.card .im img,.card .im svg{width:100%;height:100%;object-fit:cover}
+.card .bd{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.price{font-weight:800;color:var(--pri);font-size:1.15rem}.mut{color:var(--mut);font-size:.85rem}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+input,select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:8px 10px;width:100%}
+input[type=number]{width:80px}
+label{display:block;font-weight:600;font-size:.88rem;margin:10px 0 4px}
+.panel{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin-bottom:14px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--bd);font-size:.9rem;vertical-align:top}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.stat{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px}.stat b{display:block;font-size:1.4rem}
+.pay{display:flex;gap:8px;align-items:center;border:1px solid var(--bd);border-radius:10px;padding:10px;margin-top:6px;cursor:pointer}
+.pay input{width:auto}
+.hide{display:none}
+footer{text-align:center;color:var(--mut);padding:24px 16px;font-size:.85rem}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:99px;opacity:0;transition:.25s;pointer-events:none;z-index:20}
+#toast.show{opacity:1}
+:root{--onpri:#fff;--gold:#b8892f;--bg:#faf8f4;--card:#fff;--ink:#14110f;--mut:#6f6a62;--pri:#a8741a;--pri2:#8a5d12;--bd:#ece6da;--sh:0 1px 2px rgba(20,17,15,.05),0 10px 28px rgba(20,17,15,.07)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--onpri:#14110f;--gold:#d4a24c;--bg:#0e0e0d;--card:#181816;--ink:#f4f1ea;--mut:#a39e94;--pri:#d4a24c;--pri2:#e6b963;--bd:#2a2926;--sh:0 10px 28px rgba(0,0,0,.45)}}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.logo,.price,.stat b{font-family:'Playfair Display',Georgia,serif}
+header{background:color-mix(in srgb,var(--card) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+h2{font-size:1.7rem;margin:40px 0 16px}
+.btn{background:var(--pri);color:var(--onpri);border-radius:10px;letter-spacing:.3px;transition:.2s}.btn:hover{background:var(--pri2);transform:translateY(-1px)}
+.btn.alt{background:var(--card);color:var(--ink)}
+.chip.on,.badge{color:var(--onpri)}.chip{transition:.2s}
+.card,.panel,.stat{border-radius:18px;box-shadow:var(--sh)}
+.card{transition:.25s}.card:hover{transform:translateY(-4px)}
+.price{font-size:1.3rem}
+.eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.72rem;font-weight:700;margin-bottom:12px}
+.hero{position:relative;overflow:hidden;border-radius:26px;padding:60px 28px;background:linear-gradient(135deg,#0f172a 0%,#1c1917 55%,#3b2a12 100%);box-shadow:var(--sh)}
+.hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:64px 32px;pointer-events:none}
+.hero>*{position:relative;z-index:1}.hero h1{font-size:clamp(1.9rem,6vw,2.9rem);line-height:1.15;max-width:560px}.hero p{max-width:520px;font-size:1.02rem;margin-bottom:22px}
+.hero .btn:not([style]){background:#d4a24c;color:#14110f}
+.stats{margin-top:-8px}.stat{padding:18px}.stat b{font-size:1.25rem}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.f{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:22px;box-shadow:var(--sh)}
+.f .n{font-family:'Playfair Display',Georgia,serif;color:var(--gold);font-size:1.7rem;font-weight:700}.f h3{margin:6px 0}.f p{margin:0;color:var(--mut);font-size:.92rem}
+.cta{margin-top:40px;background:linear-gradient(135deg,#1c1917,#3b2a12);color:#fff;border-radius:26px;padding:40px 22px;text-align:center}.cta h2{margin-top:0}.cta p{color:#d6d1c7}.cta .btn{background:#d4a24c;color:#14110f}
+footer{background:#14110f;color:#d6d1c7;margin-top:48px;padding:36px 16px 24px;text-align:left;font-size:.9rem}footer b{color:#fff}footer p{margin:6px 0}
+.fi{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo" style="display:flex;align-items:center;gap:10px"><svg width="40" height="40" viewBox="0 0 40 40" aria-label="FAA logo"><rect width="40" height="40" rx="9" fill="#1c1917"></rect><rect x="6" y="8" width="13" height="8" rx="1.5" fill="#fff"></rect><rect x="21" y="8" width="13" height="8" rx="1.5" fill="#fff"></rect><rect x="6" y="18" width="6" height="8" rx="1.5" fill="#fff"></rect><rect x="14" y="18" width="13" height="8" rx="1.5" fill="#fff"></rect><rect x="29" y="18" width="5" height="8" rx="1.5" fill="#fff"></rect><rect x="6" y="28" width="28" height="4" rx="1.5" fill="#d4a24c"></rect></svg><div style="line-height:1.1"><div style="font-size:1.25rem;letter-spacing:1px">FAA<span></span></div><div style="font-size:.62rem;font-weight:700;color:var(--pri);letter-spacing:1.5px;text-transform:uppercase">Construction Works</div></div></div>
+  <nav>
+    <button data-v="home" class="on">Home</button>
+    <button data-v="shop" class="">Products</button>
+    <button data-v="cart" class="">Cart<span class="badge" id="cc">0</span></button>
+    <button data-v="admin">Admin</button>
+  </nav>
+</header>
+<main>
+
+<section id="v-home" class="">
+  <div class="hero">
+    <div class="eyebrow">FAA Construction Works</div>
+    <h1>Premium blocks for structures that last</h1>
+    <p>Precision-moulded 5″ and 6″ solid and hollow sandcrete blocks. Consistent quality, clear prices and dependable delivery to your site.</p>
+    <button class="btn" data-go="shop">Shop blocks</button> <a class="btn" style="display:inline-block;text-decoration:none;background:#16a34a" target="_blank" rel="noopener" href="https://wa.me/233242731902">WhatsApp us</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>4 block types</b><span class="mut">5″ &amp; 6″, solid &amp; hollow</span></div>
+    <div class="stat"><b>From GH₵ 8.50</b><span class="mut">per block</span></div>
+    <div class="stat"><b>Flexible payment</b><span class="mut">MoMo, bank or cash</span></div>
+    <div class="stat"><b>Site delivery</b><span class="mut">confirmed by phone</span></div>
+  </div>
+  <h2>Our categories</h2>
+  <div class="grid" id="catCards"></div>
+  <h2>Why builders choose us</h2>
+  <div class="feat">
+    <div class="f"><div class="n">01</div><h3>Consistent strength</h3><p>Carefully mixed and cured so every block meets the standard your build demands.</p></div>
+    <div class="f"><div class="n">02</div><h3>Honest pricing</h3><p>Clear per-block prices with no hidden charges. You always know what you pay.</p></div>
+    <div class="f"><div class="n">03</div><h3>Reliable delivery</h3><p>Orders are confirmed quickly by phone and delivered to your site.</p></div>
+  </div>
+  <h2>How it works</h2>
+  <div class="feat">
+    <div class="f"><div class="n">1</div><h3>Choose your blocks</h3><p>Pick the size and type, then set your quantity.</p></div>
+    <div class="f"><div class="n">2</div><h3>Place your order</h3><p>Enter your delivery details and choose how you will pay.</p></div>
+    <div class="f"><div class="n">3</div><h3>Receive on site</h3><p>We confirm with you and deliver to your location.</p></div>
+  </div>
+  <div class="cta"><h2>Ready to build?</h2><p>Order today or talk to us directly on WhatsApp.</p><button class="btn" data-go="shop">Order blocks</button></div>
+</section>
+
+<section id="v-shop" class="hide">
+  <h2>Products</h2>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="prodGrid"></div>
+</section>
+
+<section id="v-cart" class="hide">
+  <h2>Your cart</h2>
+  <div class="panel" id="cartBox"></div>
+  <div class="panel hide" id="checkout">
+    <h3 style="margin-top:0">Checkout</h3>
+    <label>Full name</label><input id="cName">
+    <label>Phone number</label><input id="cPhone" type="tel" placeholder="024 000 0000">
+    <label>Delivery address / site location</label><input id="cAddr">
+    <label>Payment method</label>
+    <label class="pay"><input type="radio" name="pm" value="Mobile Money" checked=""> Mobile Money (MTN, Telecel, AirtelTigo)</label>
+    <label class="pay"><input type="radio" name="pm" value="Bank Transfer"> Bank transfer</label>
+    <label class="pay"><input type="radio" name="pm" value="Cash on Delivery"> Cash on delivery</label>
+    <div id="momo" class="">
+      <label>Network</label><select id="cNet"><option>MTN MoMo</option><option>Telecel Cash</option><option>AirtelTigo Money</option></select>
+      <label>Mobile money number</label><input id="cMomo" type="tel">
+    </div>
+    <p class="mut" id="payNote">After you place the order you will see our MoMo number to send payment to.</p>
+    <button class="btn" id="place">Place order</button>
+  </div>
+</section>
+
+<section id="v-admin" class="hide">
+  <div class="panel" id="login"><h3 style="margin-top:0">🔒 Administrators only</h3><p class="mut">This area is for FAA Construction Works staff only. Customers do not need to come here. To order blocks, go to Products.</p><label>Staff ID</label><input id="pin" type="password" placeholder="Enter your Staff ID"><p><button class="btn" id="doLogin">Log in</button> <button class="btn alt" data-go="shop">Back to products</button></p></div>
+  <div id="adm" class="hide">
+    <div class="chips" id="atabs">
+      <button class="chip on" data-t="sales">Sales</button>
+      <button class="chip" data-t="prods">Products</button>
+      <button class="chip" data-t="cats">Categories</button>
+      <button class="chip" data-t="set">Settings</button>
+    </div>
+    <div id="t-sales" class=""></div>
+    <div id="t-prods" class="hide"></div>
+    <div id="t-cats" class="hide"></div>
+    <div id="t-set" class="hide"></div>
+  </div>
+</section>
+</main>
+<footer><div class="fi"><div><b style="font-family:'Playfair Display',Georgia,serif;font-size:1.15rem">FAA Construction Works</b><p>Quality sandcrete blocks for builders, contractors and homeowners in Ghana.</p></div><div><b>Products</b><p>5″ &amp; 6″ Solid Blocks<br>5″ &amp; 6″ Hollow Blocks</p></div><div><b>Contact</b><p>WhatsApp / Call: 0242 731 902<br>Ghana</p></div></div><p style="text-align:center;margin:26px 0 0;font-size:.8rem;opacity:.7">© FAA Construction Works. All rights reserved.</p></footer>
+<form name="order" method="POST" data-netlify="true" hidden><input name="order"><input name="name"><input name="phone"><input name="address"><input name="items"><input name="total"><input name="payment"></form>
+<div id="toast"></div>
+
+<script id="data" type="application/json">{"cats":["Solid Blocks","Hollow Blocks"],"products":[{"id":1,"name":"6″ Solid Block","cat":"Solid Blocks","price":10},{"id":2,"name":"5″ Solid Block","cat":"Solid Blocks","price":9},{"id":3,"name":"5″ Hollow Block","cat":"Hollow Blocks","price":8.5},{"id":4,"name":"6″ Hollow Block","cat":"Hollow Blocks","price":9.5}],"orders":[{"id":"ORD990033","date":"11/20/2026, 12:54:47 AM","name":"Kwasi","phone":"0553630082","addr":"Danfa","pay":"Mobile Money (MTN MoMo 0247579450)","items":["6″ Solid Block × 100"],"total":1000,"status":"Paid"},{"id":"ORD990033","date":"11/20/2026, 12:54:04 AM","name":"Kwasi","phone":"0553630082","addr":"Danfa","pay":"Mobile Money (MTN MoMo 0247579450)","items":["6″ Solid Block × 100"],"total":1000,"status":"Awaiting payment"},{"id":"ORD990033","date":"11/20/2026, 12:53:10 AM","name":"Kwasi","phone":"0553630082","addr":"Danfa","pay":"Mobile Money (MTN MoMo 0247579450)","items":["6″ Solid Block × 100"],"total":1000,"status":"Awaiting payment"},{"id":"ORD024695","date":"11/20/2026, 12:20:24 AM","name":"Amos Abia","phone":"0247579450","addr":"Ffffff","pay":"Mobile Money (MTN MoMo 0553638828)","items":["6″ Solid Block × 100"],"total":1000,"status":"Paid"},{"id":"ORD505741","date":"11/19/2026, 11:38:25 PM","name":"Fhkll","phone":"0248854862","addr":"Fvnnk","pay":"Mobile Money (MTN MoMo 02805586965)","items":["6″ Solid Block × 100"],"total":1000,"status":"Paid"},{"id":"SALE14084","date":"11/19/2026, 11:33:34 PM","name":"Gi bjoj","phone":"","addr":"","pay":"Mobile Money","items":["6\"solid ×500"],"total":50000,"status":"Paid"}],"nid":6}</script>
+<script>
+var $=function(s){return document.querySelector(s)};
+var owner=false;var authed=false;var pfile=null;var PAY_URL='';var JOURNAL_URL='';
+var K='blockfactory_v1',S;
+function def(){return{cats:['Solid Blocks','Hollow Blocks'],products:[
+{id:1,name:'6″ Solid Block',cat:'Solid Blocks',price:10},
+{id:2,name:'5″ Solid Block',cat:'Solid Blocks',price:9},
+{id:3,name:'5″ Hollow Block',cat:'Hollow Blocks',price:8.5},
+{id:4,name:'6″ Hollow Block',cat:'Hollow Blocks',price:9.5}],orders:[],cart:[],nid:5}}
+try{S=JSON.parse($('#data').textContent)}catch(e){}
+if(!S||!S.products)S=def();
+S.cart=[];S.orders=S.orders||[];
+try{var ad0=JSON.parse(localStorage.getItem(K+'admin'));if(ad0&&ad0.products){S.products=ad0.products;S.cats=ad0.cats;S.orders=ad0.orders||[];S.nid=ad0.nid}}catch(e){}
+try{var lc=JSON.parse(localStorage.getItem(K+'c'));if(lc)S.cart=lc}catch(e){}
+function save(){try{localStorage.setItem(K+'c',JSON.stringify(S.cart))}catch(e){}if(cur==='admin')try{localStorage.setItem(K+'admin',JSON.stringify({cats:S.cats,products:S.products,orders:S.orders,nid:S.nid}))}catch(e){toast('Storage full')}}
+var pt=null;
+function pub(){clearTimeout(pt);pt=setTimeout(doPub,700)}
+async function doPub(){try{var a=await claude.use('artifact');if(!a)return toast('Cannot publish here');
+ var c=document.documentElement.cloneNode(true);
+ ['catCards','chips','prodGrid','cartBox','t-sales','t-prods','t-cats','t-set'].forEach(function(i){c.querySelector('#'+i).innerHTML=''});
+ c.querySelector('#toast').className='';c.removeAttribute('data-theme');c.removeAttribute('style');c.querySelectorAll('style').forEach(function(s){if(/^artifact-/.test(s.textContent))s.remove()});
+ ['home','shop','cart','admin'].forEach(function(x){c.querySelector('#v-'+x).classList.toggle('hide',x!=='home')});
+ c.querySelectorAll('nav button').forEach(function(b){b.classList.toggle('on',b.dataset.v==='home')});
+ c.querySelector('[data-v=admin]').classList.add('hide');
+ c.querySelector('#data').textContent=JSON.stringify({cats:S.cats,products:S.products,orders:S.orders,nid:S.nid}).replace(/</g,'\\u003c');
+ await a.publish('<!DOCTYPE html>\n'+c.outerHTML)}catch(e){toast('Publish failed, try again')}}
+function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2200)}
+function gh(n){return 'GH₵ '+Number(n).toFixed(2)}
+function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function art(p){var h=/hollow/i.test(p.name+p.cat);
+ return '<svg viewBox="0 0 200 150"><rect width="200" height="150" fill="#d6d3cb"/><rect x="30" y="35" width="140" height="80" rx="4" fill="#8b8b85"/>'+(h?'<rect x="48" y="50" width="42" height="50" fill="#d6d3cb"/><rect x="110" y="50" width="42" height="50" fill="#d6d3cb"/>':'<rect x="30" y="35" width="140" height="10" fill="#a3a39d"/>')+'</svg>'}
+function im(p){return p.img?'<img src="'+p.img+'" alt="">':art(p)}
+
+var cur='home';
+function show(v){cur=v;['home','shop','cart','admin'].forEach(function(x){$('#v-'+x).classList.toggle('hide',x!==v)});
+ document.querySelectorAll('nav button').forEach(function(b){b.classList.toggle('on',b.dataset.v===v)});
+ if(v==='shop')renderShop();if(v==='cart')renderCart();if(v==='admin'&&authed)renderAdmin();window.scrollTo(0,0)}
+document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){show(b.dataset.v)}});
+document.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){show(b.dataset.go)}});
+
+var filt='All';
+function renderHome(){$('#catCards').innerHTML=S.cats.map(function(c){var n=S.products.filter(function(p){return p.cat===c}).length;
+ return '<div class="card"><div class="bd"><b>'+esc(c)+'</b><span class="mut">'+n+' product'+(n===1?'':'s')+'</span><button class="btn sm" data-cat="'+esc(c)+'">Browse</button></div></div>'}).join('');
+ document.querySelectorAll('[data-cat]').forEach(function(b){b.onclick=function(){filt=b.dataset.cat;show('shop')}})}
+function renderShop(){var cs=['All'].concat(S.cats);
+ $('#chips').innerHTML=cs.map(function(c){return '<button class="chip'+(c===filt?' on':'')+'" data-f="'+esc(c)+'">'+esc(c)+'</button>'}).join('');
+ document.querySelectorAll('[data-f]').forEach(function(b){b.onclick=function(){filt=b.dataset.f;renderShop()}});
+ var L=S.products.filter(function(p){return filt==='All'||p.cat===filt});
+ $('#prodGrid').innerHTML=L.length?L.map(function(p){return '<div class="card"><div class="im">'+im(p)+'</div><div class="bd"><b>'+esc(p.name)+'</b><span class="mut">'+esc(p.cat)+'</span><span class="price">'+gh(p.price)+'</span><div class="row"><input type="number" min="1" value="100" id="q'+p.id+'"><button class="btn sm" data-add="'+p.id+'">Add to cart</button></div></div></div>'}).join(''):'<p class="mut">No products in this category yet.</p>';
+ document.querySelectorAll('[data-add]').forEach(function(b){b.onclick=function(){var id=+b.dataset.add,q=Math.max(1,parseInt($('#q'+id).value)||1);
+  var it=S.cart.find(function(c){return c.id===id});if(it)it.qty+=q;else S.cart.push({id:id,qty:q});save();upd();toast('Added to cart')}})}
+function upd(){$('#cc').textContent=S.cart.reduce(function(a,c){return a+c.qty},0)}
+function lines(){return S.cart.map(function(c){var p=S.products.find(function(x){return x.id===c.id});return p?{p:p,qty:c.qty}:null}).filter(Boolean)}
+function total(){return lines().reduce(function(a,l){return a+l.p.price*l.qty},0)}
+function renderCart(){var L=lines();
+ if(!L.length){$('#cartBox').innerHTML='<p class="mut">Your cart is empty.</p>';$('#checkout').classList.add('hide');return}
+ $('#cartBox').innerHTML='<div class="tw"><table><tr><th>Product</th><th>Price</th><th>Qty</th><th>Subtotal</th><th></th></tr>'+L.map(function(l){return '<tr><td>'+esc(l.p.name)+'</td><td>'+gh(l.p.price)+'</td><td><input type="number" min="1" value="'+l.qty+'" data-q="'+l.p.id+'"></td><td>'+gh(l.p.price*l.qty)+'</td><td><button class="btn alt sm" data-rm="'+l.p.id+'">Remove</button></td></tr>'}).join('')+'</table></div><h3>Total: '+gh(total())+'</h3><p class="mut">Delivery cost is confirmed by phone after you order.</p>';
+ document.querySelectorAll('[data-q]').forEach(function(i){i.onchange=function(){var c=S.cart.find(function(x){return x.id===+i.dataset.q});c.qty=Math.max(1,parseInt(i.value)||1);save();upd();renderCart()}});
+ document.querySelectorAll('[data-rm]').forEach(function(b){b.onclick=function(){S.cart=S.cart.filter(function(x){return x.id!==+b.dataset.rm});save();upd();renderCart()}});
+ $('#checkout').classList.remove('hide');payUI()}
+function payUI(){var m=document.querySelector('input[name=pm]:checked').value;$('#momo').classList.toggle('hide',m!=='Mobile Money');
+ $('#payNote').textContent=m==='Mobile Money'?'After you place the order you will see our MoMo number to send payment to.':m==='Bank Transfer'?'Bank details will be sent to you after you place the order.':'Pay in cash when your blocks arrive.'}
+document.querySelectorAll('input[name=pm]').forEach(function(r){r.onchange=payUI});
+$('#place').onclick=function(){var n=$('#cName').value.trim(),ph=$('#cPhone').value.trim(),ad=$('#cAddr').value.trim(),m=document.querySelector('input[name=pm]:checked').value;
+ if(!n||!ph||!ad)return toast('Please fill in name, phone and address');
+ if(m==='Mobile Money'&&!$('#cMomo').value.trim())return toast('Enter your mobile money number');
+ var o={id:'ORD'+String(Date.now()).slice(-6),date:new Date().toLocaleString(),name:n,phone:ph,addr:ad,pay:m+(m==='Mobile Money'?' ('+$('#cNet').value+' '+$('#cMomo').value.trim()+')':''),
+  items:lines().map(function(l){return l.p.name+' × '+l.qty}),total:total(),status:m==='Cash on Delivery'?'Pending':'Awaiting payment'};
+ try{fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({'form-name':'order',order:o.id,name:n,phone:ph,address:ad,items:o.items.join('; '),total:String(o.total),payment:o.pay}).toString()})}catch(e){}
+ S.orders.unshift(o);S.cart=[];save();upd();
+ var wm=encodeURIComponent('ORDER '+o.id+'\nName: '+n+'\nPhone: '+ph+'\nItems: '+o.items.join('; ')+'\nTotal: '+gh(o.total)+'\nPayment: '+o.pay+'\nAddress: '+ad);
+ $('#cartBox').innerHTML='<h3>✅ Order '+o.id+' received</h3><p>Thank you, '+esc(n)+'. Total: <b>'+gh(o.total)+'</b>. We will call you on '+esc(ph)+' to confirm delivery.</p>'+(m==='Mobile Money'?'<div class="panel"><b>Pay by Mobile Money</b><br>Send <b>'+gh(o.total)+'</b> to <b>0242731902</b> (FRANCIS ATTAH ABIA). Use your name as reference, then tap the green button below to send your order on WhatsApp.</div>':'')+'<p>Tap below to send this order to us on WhatsApp so we can start right away:</p><a class="btn" style="display:inline-block;text-decoration:none;background:#16a34a" target="_blank" rel="noopener" href="https://wa.me/233242731902?text='+wm+'">Send order on WhatsApp</a>';
+ if(PAY_URL&&m==='Mobile Money'){var q='?action=pay&ref='+o.id+'&amount='+o.total+'&name='+encodeURIComponent(n)+'&phone='+encodeURIComponent(ph)+'&addr='+encodeURIComponent(ad)+'&items='+encodeURIComponent(o.items.join('; '));
+ $('#cartBox').insertAdjacentHTML('beforeend','<p><a class="btn" style="display:inline-block;text-decoration:none" target="_blank" rel="noopener" href="'+PAY_URL+q+'">Pay now (Mobile Money / card)</a></p><p class="mut">Your payment is recorded automatically once confirmed.</p>')}
+ $('#checkout').classList.add('hide')};
+
+/* ADMIN */
+
+document.querySelectorAll('#atabs .chip').forEach(function(b){b.onclick=function(){document.querySelectorAll('#atabs .chip').forEach(function(x){x.classList.toggle('on',x===b)});
+ ['sales','prods','cats','set'].forEach(function(t){$('#t-'+t).classList.toggle('hide',t!==b.dataset.t)})}});
+function renderAdmin(){pfile=null;
+ var paid=S.orders.filter(function(o){return o.status==='Paid'||o.status==='Delivered'}),rev=paid.reduce(function(a,o){return a+o.total},0);
+ $('#t-sales').innerHTML='<div class="stats"><div class="stat"><b>'+S.orders.length+'</b>Total orders</div><div class="stat"><b>'+S.orders.filter(function(o){return o.status==='Pending'||o.status==='Awaiting payment'}).length+'</b>Open orders</div><div class="stat"><b>'+gh(rev)+'</b>Revenue (paid)</div></div><div class="panel tw"><table><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr>'+(S.orders.map(function(o,i){return '<tr><td>'+o.id+'<br><span class="mut">'+esc(o.date)+'</span></td><td>'+esc(o.name)+'<br>'+esc(o.phone)+'<br><span class="mut">'+esc(o.addr)+'</span></td><td>'+o.items.map(esc).join('<br>')+'</td><td>'+gh(o.total)+'</td><td>'+esc(o.pay)+'</td><td><select data-st="'+i+'">'+['Pending','Awaiting payment','Paid','Delivered','Cancelled'].map(function(s){return '<option'+(s===o.status?' selected':'')+'>'+s+'</option>'}).join('')+'</select></td><td><button class="btn alt sm" data-del="'+i+'">Delete</button></td></tr>'}).join('')||'<tr><td colspan="7" class="mut">No orders yet.</td></tr>')+'</table></div>';
+ document.querySelectorAll('[data-st]').forEach(function(s){s.onchange=function(){S.orders[+s.dataset.st].status=s.value;save();renderAdmin()}});
+ document.querySelectorAll('[data-del]').forEach(function(b){b.onclick=function(){if(b.dataset.s!=='1'){b.dataset.s='1';b.textContent='Tap again to delete';setTimeout(function(){b.dataset.s='';b.textContent='Delete'},3000);return}S.orders.splice(+b.dataset.del,1);save();renderAdmin()}});
+ $('#t-sales').insertAdjacentHTML('afterbegin','<div class="panel"><h3 style="margin-top:0">Paste WhatsApp order</h3><p class="mut">Paste the order message a customer sent you, then tap Record.</p><textarea id="pm" rows="5" style="width:100%;font:inherit;border:1px solid var(--bd);border-radius:8px;padding:8px;background:var(--card);color:var(--ink)"></textarea><p><button class="btn" id="pmb">Record from message</button></p></div><div class="panel"><h3 style="margin-top:0">Record a sale (WhatsApp or walk-in)</h3><label>Customer</label><input id="rn"><label>Items (e.g. 6″ Solid × 200)</label><input id="ri"><label>Total (GH₵)</label><input id="rt" type="number" step="0.01"><label>Payment</label><select id="rp"><option>Mobile Money</option><option>Bank Transfer</option><option>Cash</option></select><p><button class="btn" id="radd">Save sale</button></p></div>');
+ $('#radd').onclick=function(){var t=parseFloat($('#rt').value);if(!$('#rn').value.trim()||isNaN(t))return toast('Enter customer and total');S.orders.unshift({id:'SALE'+String(Date.now()).slice(-5),date:new Date().toLocaleString(),name:$('#rn').value.trim(),phone:'',addr:'',pay:$('#rp').value,items:[$('#ri').value.trim()||'Blocks'],total:t,status:'Paid'});save();renderAdmin()};
+ $('#pmb').onclick=function(){var tx=$('#pm').value,g=function(k){var r=new RegExp('^[ ]*'+k+'[ ]*:[ ]*(.+)$','im').exec(tx);return r?r[1].trim():''};
+ var tot=parseFloat(g('Total').replace(/[^0-9.]/g,''));if(!tx.trim()||isNaN(tot))return toast('Could not find a Total in that message');
+ var oid=(/ORDER ([A-Za-z0-9]+)/i.exec(tx)||[])[1]||'MSG'+String(Date.now()).slice(-5);
+ if(S.orders.some(function(x){return x.id===oid||(x.name===(g('Name')||'Customer')&&x.total===tot&&x.items[0]===(g('Items')||'Blocks')&&x.phone===g('Phone'))}))return toast('Already recorded. Not added again.');
+ S.orders.unshift({id:oid,date:new Date().toLocaleString(),name:g('Name')||'Customer',phone:g('Phone'),addr:g('Address'),pay:g('Payment')||'Mobile Money',items:[g('Items')||'Blocks'],total:tot,status:'Paid'});save();renderAdmin()};
+ var co=S.cats.map(function(c){return '<option>'+esc(c)+'</option>'}).join('');
+ $('#t-prods').innerHTML='<div class="panel"><h3 style="margin-top:0">Upload new product</h3><label>Name</label><input id="pn"><label>Category</label><select id="pc">'+co+'</select><label>Price (GH₵)</label><input id="pp" type="number" step="0.01" min="0"><label>Photo (optional)</label><div class="row"><label class="btn alt sm" style="display:inline-block;margin:0;cursor:pointer" for="pf">Choose photo</label><label class="btn alt sm" style="display:inline-block;margin:0;cursor:pointer" for="pf2">Take photo</label><span class="mut" id="pfn">No photo chosen</span></div><input id="pf" type="file" accept="image/*" style="position:absolute;width:1px;height:1px;opacity:0"><input id="pf2" type="file" accept="image/*" capture="environment" style="position:absolute;width:1px;height:1px;opacity:0"><p><button class="btn" id="padd">Add product</button></p></div><div class="panel tw"><table><tr><th></th><th>Product</th><th>Category</th><th>Price</th><th></th></tr>'+S.products.map(function(p){return '<tr><td style="width:60px"><div style="width:56px;height:42px;overflow:hidden;border-radius:6px">'+im(p)+'</div></td><td>'+esc(p.name)+'</td><td>'+esc(p.cat)+'</td><td><input type="number" step="0.01" value="'+p.price+'" data-pr="'+p.id+'" style="width:90px"></td><td><button class="btn alt sm" data-dp="'+p.id+'">Delete</button></td></tr>'}).join('')+'</table></div>';
+ $('#padd').onclick=function(){var n=$('#pn').value.trim(),pr=parseFloat($('#pp').value);if(!n||isNaN(pr))return toast('Enter name and price');
+  var f=pfile,add=function(img){pfile=null;S.products.push({id:S.nid++,name:n,cat:$('#pc').value,price:pr,img:img});save();renderAdmin();toast('Product added')};
+  if(!f)return add(null);var r=new FileReader();r.onload=function(){var i=new Image();i.onload=function(){var s=Math.min(1,500/i.width),c=document.createElement('canvas');c.width=i.width*s;c.height=i.height*s;c.getContext('2d').drawImage(i,0,0,c.width,c.height);add(c.toDataURL('image/jpeg',.75))};i.onerror=function(){toast('Could not read that photo')};i.src=r.result};r.onerror=function(){toast('Could not open that file')};r.readAsDataURL(f)};
+ $('#pf').onchange=$('#pf2').onchange=function(){pfile=this.files[0]||null;$('#pfn').textContent=pfile?pfile.name:'No photo chosen';if(pfile)toast('Photo selected')};
+ document.querySelectorAll('[data-pr]').forEach(function(i){i.onchange=function(){var p=S.products.find(function(x){return x.id===+i.dataset.pr});p.price=parseFloat(i.value)||p.price;save();toast('Price updated')}});
+ document.querySelectorAll('[data-dp]').forEach(function(b){b.onclick=function(){if(b.dataset.s!=='1'){b.dataset.s='1';b.textContent='Tap again to delete';setTimeout(function(){b.dataset.s='';b.textContent='Delete'},3000);return}S.products=S.products.filter(function(x){return x.id!==+b.dataset.dp});S.cart=S.cart.filter(function(x){return x.id!==+b.dataset.dp});save();upd();renderAdmin()}});
+ $('#t-cats').innerHTML='<div class="panel"><h3 style="margin-top:0">Categories</h3>'+S.cats.map(function(c,i){return '<div class="row" style="margin-bottom:6px"><b style="flex:1">'+esc(c)+'</b><button class="btn alt sm" data-dc="'+i+'">Delete</button></div>'}).join('')+'<label>New category</label><div class="row"><input id="nc" style="flex:1"><button class="btn" id="cadd">Add</button></div></div>';
+ $('#cadd').onclick=function(){var v=$('#nc').value.trim();if(v&&S.cats.indexOf(v)<0){S.cats.push(v);save();renderAdmin();renderHome()}};
+ document.querySelectorAll('[data-dc]').forEach(function(b){b.onclick=function(){var c=S.cats[+b.dataset.dc];if(S.products.some(function(p){return p.cat===c}))return toast('Move or delete its products first');S.cats.splice(+b.dataset.dc,1);save();renderAdmin();renderHome()}});
+ $('#t-set').innerHTML='<div class="panel"><h3 style="margin-top:0">Settings</h3><p>Changes you make here are saved on this device only. To change what customers see, ask your developer to update the site code and upload it again.</p><p><button class="btn alt" onclick="logout()">Log out</button></p></div>'+(JOURNAL_URL?'<div class="panel"><a class="btn" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none" href="'+JOURNAL_URL+'">Open payment journal</a></div>':'');staffUI();
+ renderHome()}
+renderHome();upd();
+var STAFF_HASH='03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4';
+function sha(t){return crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,'0')}).join('')})}
+function staffUI(){$('#t-set').insertAdjacentHTML('beforeend','<div class="panel"><h3 style="margin-top:0">Change Staff ID</h3><label>Current Staff ID</label><input id="sc" type="password"><label>New Staff ID (at least 4 characters)</label><input id="sn" type="password"><label>Confirm new Staff ID</label><input id="sn2" type="password"><p><button class="btn" id="ssv">Change Staff ID</button></p><div id="sout"></div></div>');
+$('#ssv').onclick=async function(){try{var cur=await sha($('#sc').value),act=localStorage.getItem('faa_staff')||STAFF_HASH;if(cur!==act)return toast('Current Staff ID is wrong');var n=$('#sn').value;if(n.length<4)return toast('Use at least 4 characters');if(n!==$('#sn2').value)return toast('The two new IDs do not match');var h=await sha(n);localStorage.setItem('faa_staff',h);$('#sout').innerHTML='<p>Changed on this device. To make it the Staff ID on every device, replace the line that starts with <b>var STAFF_HASH=</b> in your site file with the line below, then upload the file to Netlify again.</p><textarea readonly rows="3" style="width:100%">var STAFF_HASH=\''+h+'\';</textarea>'}catch(e){toast('Could not change the Staff ID here')}}}
+function logout(){authed=false;$('#adm').classList.add('hide');$('#login').classList.remove('hide');$('#pin').value=''}
+$('#doLogin').onclick=async function(){try{var h=await sha($('#pin').value);if(h===(localStorage.getItem('faa_staff')||STAFF_HASH)){authed=true;$('#login').classList.add('hide');$('#adm').classList.remove('hide');renderAdmin()}else toast('Wrong Staff ID. Administrators only.')}catch(e){toast('Please open the site over https to log in')}};
+$('#pin').onkeydown=function(e){if(e.key==='Enter')$('#doLogin').click()};
+</script>
+
+
+</body></html>
